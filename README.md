@@ -1,4 +1,4 @@
-[Türkiye C++ Topluluğu Telegram Grubu](https://t.me/trcpp)'nda [Necati Ergin](https://github.com/necatiergin) Hocanın paylaştığı soruları vs C++ ipuçlarını derlemeye çalıştım.
+[Türkiye C++ Topluluğu Telegram Grubu](https://t.me/trcpp)'nda [Necati Ergin](https://github.com/necatiergin) Hocanın paylaştığı soruları ve C++ ipuçlarını derlemeye çalıştım.
 
 - [Günün Sorusu](#günün-sorusu)
 - [C++ İpuçları](#c-i̇puçları)
