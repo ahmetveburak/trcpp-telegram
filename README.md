@@ -1,4 +1,4 @@
-[Türkiye C++ Topluluğu Telegram Grubu](https://t.me/trcpp)'da [Necati Ergin](https://github.com/necatiergin) Hocanın paylaştığı soruları vs C++ ipuçlarını derlemeye çalıştım.
+[Türkiye C++ Topluluğu Telegram Grubu](https://t.me/trcpp)'nda [Necati Ergin](https://github.com/necatiergin) Hocanın paylaştığı soruları vs C++ ipuçlarını derlemeye çalıştım.
 
 - [Günün Sorusu](#günün-sorusu)
 - [C++ İpuçları](#c-i̇puçları)
@@ -37,6 +37,7 @@
 - [Günün Sorusu 029](gunun-sorusu.md#günün-sorusu-029)
 - [Günün Sorusu 030](gunun-sorusu.md#günün-sorusu-030)
 - [Günün Sorusu 031](gunun-sorusu.md#günün-sorusu-031)
+- [Günün Sorusu 032](gunun-sorusu.md#günün-sorusu-032)
 
 # C++ İpuçları
 
@@ -45,5 +46,6 @@
 - [C++20 ipuçları 003](cpp-ipuclari.md#c20-ipuçları-003)
 - [C++20 ipuçları 004](cpp-ipuclari.md#c20-ipuçları-004)
 - [C++20 ipuçları 005](cpp-ipuclari.md#c20-ipuçları-005)
+- [C++20 ipuçları 006](cpp-ipuclari.md#c20-ipuçları-006)
 
 

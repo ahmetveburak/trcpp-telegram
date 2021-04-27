@@ -3,6 +3,7 @@
 - [C++20 ipuçları 003](#c20-ipuçları-003)
 - [C++20 ipuçları 004](#c20-ipuçları-004)
 - [C++20 ipuçları 005](#c20-ipuçları-005)
+- [C++20 ipuçları 006](#c20-ipuçları-006)
 
 
 ### [C++20 ipuçları 001](https://t.me/trcpp/9585)
@@ -96,7 +97,7 @@ int main() {
 ```
 
 ### [C++20 ipuçları 005](https://t.me/trcpp/9766)
-<bit> başlık dosyasında yer alan *endian* isimli *enum class* ile derleme zamanında *"endianness"* sorgulaması yapılabiliyor:
+`<bit>` başlık dosyasında yer alan *endian* isimli *enum class* ile derleme zamanında *"endianness"* sorgulaması yapılabiliyor:
 
 Sistem (platform) *"little endian"* ise *"native"* numaralandırma sabiti ile *little* sabiti eşit olmak zorunda.
 Sistem *"big endian"* ise *"native"* numaralandırma sabiti ile *big* sabiti eşit olmak zorunda.
@@ -116,5 +117,22 @@ int main() {
     } else {
         cout << "mixed\n";
     }
+}
+```
+
+### [C++20 ipuçları 006](https://t.me/trcpp/10073)
+C++20 standartlarından önce, sınıfların bit alanı (bitfields) elemanları için "varsayılan ilk değer verici" (default member initializer) kullanılamıyordu. C++20 standartları ile bu mümkün kılındı.
+
+```cpp
+#include <iostream>
+
+struct Nec {
+    unsigned x : 3 {2};  // C++17'de gecersiz C++20'de gecerli
+    unsigned y : 3 = 1;  // C++17'de gecersiz C++20'de gecerli
+};
+
+int main() {
+    Nec mynec;
+    std::cout << mynec.x << mynec.y;
 }
 ```

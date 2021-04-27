@@ -1,34 +1,37 @@
-- [Günün Sorusu 001](#günün-sorusu-001)
-- [Günün Sorusu 002](#günün-sorusu-002)
-- [Günün Sorusu 003](#günün-sorusu-003)
-- [Günün Sorusu 004](#günün-sorusu-004)
-- [Günün Sorusu 005](#günün-sorusu-005)
-- [Günün Sorusu 006](#günün-sorusu-006)
-- [Günün Sorusu 007](#günün-sorusu-007)
-- [Günün Sorusu 008](#günün-sorusu-008)
-- [Günün Sorusu 009](#günün-sorusu-009)
-- [Günün Sorusu 010](#günün-sorusu-010)
-- [Günün Sorusu 011](#günün-sorusu-011)
-- [Günün Sorusu 012](#günün-sorusu-012)
-- [Günün Sorusu 013](#günün-sorusu-013)
-- [Günün Sorusu 014](#günün-sorusu-014)
-- [Günün Sorusu 015](#günün-sorusu-015)
-- [Günün Sorusu 016](#günün-sorusu-016)
-- [Günün Sorusu 017](#günün-sorusu-017)
-- [Günün Sorusu 018](#günün-sorusu-018)
-- [Günün Sorusu 019](#günün-sorusu-019)
-- [Günün Sorusu 020](#günün-sorusu-020)
-- [Günün Sorusu 021](#günün-sorusu-021)
-- [Günün Sorusu 022](#günün-sorusu-022)
-- [Günün Sorusu 023](#günün-sorusu-023)
-- [Günün Sorusu 024](#günün-sorusu-024)
-- [Günün Sorusu 025](#günün-sorusu-025)
-- [Günün Sorusu 026](#günün-sorusu-026)
-- [Günün Sorusu 027](#günün-sorusu-027)
-- [Günün Sorusu 028](#günün-sorusu-028)
-- [Günün Sorusu 029](#günün-sorusu-029)
-- [Günün Sorusu 030](#günün-sorusu-030)
-- [Günün Sorusu 031](#günün-sorusu-031)
+# Günün Sorusu
+- [Günün Sorusu](#günün-sorusu)
+    - [Günün Sorusu 001](#günün-sorusu-001)
+    - [Günün Sorusu 002](#günün-sorusu-002)
+    - [Günün Sorusu 003](#günün-sorusu-003)
+    - [Günün Sorusu 004](#günün-sorusu-004)
+    - [Günün Sorusu 005](#günün-sorusu-005)
+    - [Günün Sorusu 006](#günün-sorusu-006)
+    - [Günün Sorusu 007](#günün-sorusu-007)
+    - [Günün Sorusu 008](#günün-sorusu-008)
+    - [Günün Sorusu 009](#günün-sorusu-009)
+    - [Günün Sorusu 010](#günün-sorusu-010)
+    - [Günün Sorusu 011](#günün-sorusu-011)
+    - [Günün Sorusu 012](#günün-sorusu-012)
+    - [Günün Sorusu 013](#günün-sorusu-013)
+    - [Günün Sorusu 014](#günün-sorusu-014)
+    - [Günün Sorusu 015](#günün-sorusu-015)
+    - [Günün Sorusu 016](#günün-sorusu-016)
+    - [Günün Sorusu 017](#günün-sorusu-017)
+    - [Günün Sorusu 018](#günün-sorusu-018)
+    - [Günün Sorusu 019](#günün-sorusu-019)
+    - [Günün Sorusu 020](#günün-sorusu-020)
+    - [Günün Sorusu 021](#günün-sorusu-021)
+    - [Günün Sorusu 022](#günün-sorusu-022)
+    - [Günün Sorusu 023](#günün-sorusu-023)
+    - [Günün Sorusu 024](#günün-sorusu-024)
+    - [Günün Sorusu 025](#günün-sorusu-025)
+    - [Günün Sorusu 026](#günün-sorusu-026)
+    - [Günün Sorusu 027](#günün-sorusu-027)
+    - [Günün Sorusu 028](#günün-sorusu-028)
+    - [Günün Sorusu 029](#günün-sorusu-029)
+    - [Günün Sorusu 030](#günün-sorusu-030)
+    - [Günün Sorusu 031](#günün-sorusu-031)
+    - [Günün Sorusu 032](#günün-sorusu-032)
 
 
 ### [Günün Sorusu 001](https://t.me/trcpp/8766)
@@ -780,5 +783,23 @@ int main() {
     std::vector vy{0, 0};
 
     std::cout << (vy > vx);
+}
+```
+
+### [Günün Sorusu 032](https://t.me/trcpp/10067)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 0, y = 1, z = 2;
+
+    std::cout << (++x || --y && --z);
+    std::cout << x << y << z;
 }
 ```
