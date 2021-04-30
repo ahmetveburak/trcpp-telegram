@@ -38,6 +38,9 @@
 - [Günün Sorusu 030](gunun-sorusu.md#günün-sorusu-030)
 - [Günün Sorusu 031](gunun-sorusu.md#günün-sorusu-031)
 - [Günün Sorusu 032](gunun-sorusu.md#günün-sorusu-032)
+- [Günün Sorusu 033](gunun-sorusu.md#günün-sorusu-033)
+- [Günün Sorusu 034](gunun-sorusu.md#günün-sorusu-034)
+- [Günün Sorusu 035](gunun-sorusu.md#günün-sorusu-035)
 
 # C++ İpuçları
 
@@ -47,5 +50,6 @@
 - [C++20 ipuçları 004](cpp-ipuclari.md#c20-ipuçları-004)
 - [C++20 ipuçları 005](cpp-ipuclari.md#c20-ipuçları-005)
 - [C++20 ipuçları 006](cpp-ipuclari.md#c20-ipuçları-006)
+- [C++20 ipuçları 007](cpp-ipuclari.md#c20-ipuçları-007)
 
 

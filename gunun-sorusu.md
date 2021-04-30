@@ -32,6 +32,9 @@
     - [Günün Sorusu 030](#günün-sorusu-030)
     - [Günün Sorusu 031](#günün-sorusu-031)
     - [Günün Sorusu 032](#günün-sorusu-032)
+    - [Günün Sorusu 033](#günün-sorusu-033)
+    - [Günün Sorusu 034](#günün-sorusu-034)
+    - [Günün Sorusu 035](#günün-sorusu-035)
 
 
 ### [Günün Sorusu 001](https://t.me/trcpp/8766)
@@ -801,5 +804,90 @@ int main() {
 
     std::cout << (++x || --y && --z);
     std::cout << x << y << z;
+}
+```
+
+### [Günün Sorusu 033](https://t.me/trcpp/10283)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+struct Nec {
+    Nec() { std::cout << "c"; }
+    ~Nec() { std::cout << "d"; }
+};
+
+int i{2};
+
+int main() {
+    switch (i) {
+        while (i) {
+            case 2:
+                Nec x;
+                --i;
+        }
+    }
+}
+```
+
+### [Günün Sorusu 034](https://t.me/trcpp/10315)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+
+```cpp
+#include <iostream>
+
+int g{1};
+
+void f() { std::cout << 2; }
+
+template <typename T>
+struct Base {
+    int g = 3;
+    void f() const { std::cout << 4; }
+};
+
+template <typename T>
+struct Der : Base<T> {
+    void foo() const {
+        std::cout << g;
+        f();
+    }
+};
+
+int main() {
+    Der<int> myder;
+    myder.foo();
+}
+```
+
+
+### [Günün Sorusu 035](https://t.me/trcpp/10359)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+#include <sstream>
+
+int main() {
+    std::ostringstream ss{"1"};
+    ss << "2";
+    std::cout << ss.str();
+    ss << "3";
+    ss << ss.str();
+    std::cout << ss.str();
 }
 ```

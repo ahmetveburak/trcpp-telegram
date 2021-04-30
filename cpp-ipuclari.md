@@ -4,6 +4,7 @@
 - [C++20 ipuçları 004](#c20-ipuçları-004)
 - [C++20 ipuçları 005](#c20-ipuçları-005)
 - [C++20 ipuçları 006](#c20-ipuçları-006)
+- [C++20 ipuçları 007](#c20-ipuçları-007)
 
 
 ### [C++20 ipuçları 001](https://t.me/trcpp/9585)
@@ -134,5 +135,26 @@ struct Nec {
 int main() {
     Nec mynec;
     std::cout << mynec.x << mynec.y;
+}
+```
+
+### [C++20 ipuçları 007](https://t.me/trcpp/10295)
+Kapsamlı numaralandırma türleri *(scoped enums) C++11* standartları ile dile eklenmişti. Kapsamlı numaralandırma türlerinin kullanımı ile daha güvenli kodlar oluşturabiliyoruz.  Ancak kapsamlı numaralandırma sabitlerinin *(enumaration constants)* özellikle yerel *(local)* kod alanlarında yoğun kullanımı kod kalabalığı *(verbose code)* oluşturabiliyor.  *C++20* standartları ile artık numaralandırma türleri ya da numaralandırma sabitleri için *using* bildirimi yapabiliyoruz. Böylece *using* bildiriminin yapıldığı kapsamda *(scope)* numaralandırma sabitlerini çözünürlük operatörü *(scope resolution operator)* olmadan kullanabiliyoruz.
+
+```cpp
+enum class suit { club, diamond, heart, spade };
+
+enum class face { two, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace };
+
+void f(suit s, face f) {
+    using enum suit;              // enum class icin using bildirimi
+    using face::ace, face::king;  // enumarator'ler icin using bildirimi
+
+    if (s == suit::heart) s = suit::spade;  // C++20 oncesinde
+    if (s == heart) s = spade;              // C++20
+
+    if (f == face::king) f = face::ace;  // C++20 oncesinde
+    if (f == king) f = ace;              // C++20
+    // if (f == four) f = five; // C++20'de de gecersiz
 }
 ```
