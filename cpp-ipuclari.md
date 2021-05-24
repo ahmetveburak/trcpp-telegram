@@ -5,6 +5,7 @@
 - [C++20 ipuçları 005](#c20-ipuçları-005)
 - [C++20 ipuçları 006](#c20-ipuçları-006)
 - [C++20 ipuçları 007](#c20-ipuçları-007)
+- [C++20 ipuçları 008](#c20-ipuçları-008)
 
 
 ### [C++20 ipuçları 001](https://t.me/trcpp/9585)
@@ -156,5 +157,25 @@ void f(suit s, face f) {
     if (f == face::king) f = face::ace;  // C++20 oncesinde
     if (f == king) f = ace;              // C++20
     // if (f == four) f = five; // C++20'de de gecersiz
+}
+```
+
+
+### [C++20 ipuçları 008](https://t.me/trcpp/10719)
+C99 standartları ile C diline eklenmiş olan *"designated initializer"*  C++20 standartları ile C++ diline de eklendi. Ancak C dilinden farklı olarak,  C++ dilinde ilk değerlerin bildirimdeki sırayla belirtilmesi gerekiyor.
+
+```cpp
+#include <iostream>
+
+struct A {
+    int x;
+    double d{2.4};
+    char str[20];
+};
+
+int main() {
+    A x = {.x = 45, .str = "necati"};    // 45, 2.4, "necati"
+    A y = {.d = 1.5, .str = "mustafa"};  // 0, 1.5, "mustafa"
+    A z = {.d = 4.4, .x = 5};            // gecersiz. x'e d'den once ilk deger verilmeli
 }
 ```

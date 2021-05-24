@@ -35,6 +35,15 @@
     - [Günün Sorusu 033](#günün-sorusu-033)
     - [Günün Sorusu 034](#günün-sorusu-034)
     - [Günün Sorusu 035](#günün-sorusu-035)
+    - [Günün Sorusu 036](#günün-sorusu-036)
+    - [Günün Sorusu 037](#günün-sorusu-037)
+    - [Günün Sorusu 038](#günün-sorusu-038)
+    - [Günün Sorusu 039](#günün-sorusu-039)
+    - [Günün Sorusu 040](#günün-sorusu-040)
+    - [Günün Sorusu 041](#günün-sorusu-041)
+    - [Günün Sorusu 042](#günün-sorusu-042)
+    - [Günün Sorusu 043](#günün-sorusu-043)
+    - [Günün Sorusu 044](#günün-sorusu-044)
 
 
 ### [Günün Sorusu 001](https://t.me/trcpp/8766)
@@ -889,5 +898,199 @@ int main() {
     ss << "3";
     ss << ss.str();
     std::cout << ss.str();
+}
+```
+
+### [Günün Sorusu 036](https://t.me/trcpp/10717)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+typedef long LONG;
+
+void func(unsigned LONG) {
+    std::cout << (typeid(LONG) == typeid(unsigned long));
+    std::cout << (typeid(LONG) == typeid(long));
+    std::cout << (typeid(LONG) == typeid(unsigned int));
+}
+
+int main() { 
+    func(12uL);
+}
+```
+
+### [Günün Sorusu 037](https://t.me/trcpp/10749)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<bool, bool> bmap;
+    std::cout << bmap[true];
+}
+```
+
+### [Günün Sorusu 038](https://t.me/trcpp/10785)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+template <typename T>
+struct Nec {
+    inline static int x{};
+};
+
+int main() {
+    ++Nec<int>::x;
+    ++Nec<const int>::x;
+    ++Nec<volatile int>::x;
+    ++Nec<const volatile int>::x;
+
+    std::cout << Nec<int>::x;
+}
+```
+
+### [Günün Sorusu 039](https://t.me/trcpp/10808)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+int main() {
+    unsigned long lval{};
+    const long& x = lval;
+    const int& y = x;
+
+    ++lval;
+    std::cout << x << y;
+}
+```
+
+### [Günün Sorusu 040](https://t.me/trcpp/10847)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+#include <type_traits>
+
+int main() {
+    using namespace std;
+
+    cout << is_same_v<void(int), void(const int)>;
+    cout << is_same_v<void(int *), void(const int*)>;
+    cout << is_same_v<void(int *), void(int* const)>;
+}
+```
+
+### [Günün Sorusu 041](https://t.me/trcpp/10891)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+int y;
+
+int main() {
+    auto x{y++}, *p{&y}, &y{x};
+    ++x;
+    ++y;
+    ++*p;
+    std::cout << x << y << ::y;
+}
+```
+
+
+### [Günün Sorusu 042](https://t.me/trcpp/10927)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+template <typename T>
+auto f1(T &x) {return (x);}
+
+template <typename T>
+decltype(auto) f2(T &x) {return (x);}
+
+void foo(const int &) { 
+    std::cout << "1"; 
+}
+
+void foo(int &&) { 
+    std::cout << "2";
+}
+
+int main() {
+    int x{};
+    foo(f1(x));
+    foo(f2(x));
+}
+```
+
+### [Günün Sorusu 043](https://t.me/trcpp/10971)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+#include <memory>
+#include <type_traits>
+
+int main() {
+    using namespace std;
+
+    cout << is_pointer_v<nullptr_t> << is_pointer_v<unique_ptr<int>>;
+}
+```
+
+### [Günün Sorusu 044](https://t.me/trcpp/11074)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x{};
+    ++++++x;
+    std::cout << x;
 }
 ```
