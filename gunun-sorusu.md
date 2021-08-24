@@ -44,6 +44,9 @@
     - [Günün Sorusu 042](#günün-sorusu-042)
     - [Günün Sorusu 043](#günün-sorusu-043)
     - [Günün Sorusu 044](#günün-sorusu-044)
+    - [Günün Sorusu 045](#günün-sorusu-045)
+    - [Günün Sorusu 046](#günün-sorusu-046)
+    - [Günün Sorusu 047](#günün-sorusu-047)
 
 
 ### [Günün Sorusu 001](https://t.me/trcpp/8766)
@@ -1092,5 +1095,66 @@ int main() {
     int x{};
     ++++++x;
     std::cout << x;
+}
+```
+
+### [Günün Sorusu 045](https://t.me/trcpp/11522)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << ((int*){int()} == nullptr);
+}
+```
+
+### [Günün Sorusu 046](https://t.me/trcpp/12441)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+namespace Nec {
+    struct A {
+        operator int() const { return 1; }
+    };
+    void foo(A) { std::cout << "1"; }
+}
+
+void foo(int) { std::cout << "2"; }
+
+int main() {
+    Nec::A x;
+    foo(x);
+    (foo)(x);
+}
+```
+### [Günün Sorusu 047](https://t.me/trcpp/12730)
+- C++17 standartlarına göre aşağıdaki kodda f fonksiyonuna yapılan çağrılardan hangileri geçerlidir?
+
+```cpp
+#include <utility>
+
+template <typename T>
+void f(T, T&&);
+
+int main() {
+    int x{}, y{};
+
+    f(x, y);                        // 1
+    f(x, y++);                      // 2
+    f(x, ++y);                      // 3
+    f(&x, &y);                      // 4
+    f("ali", "can");                // 5
+    f(std::move(x), std::move(y));  // 6
 }
 ```
