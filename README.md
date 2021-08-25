@@ -53,6 +53,10 @@
 - [Günün Sorusu 045](gunun-sorusu.md#günün-sorusu-045)
 - [Günün Sorusu 046](gunun-sorusu.md#günün-sorusu-046)
 - [Günün Sorusu 047](gunun-sorusu.md#günün-sorusu-047)
+- [Günün Sorusu 048](gunun-sorusu.md#günün-sorusu-048)
+- [Günün Sorusu 049](gunun-sorusu.md#günün-sorusu-049)
+- [Günün Sorusu 050](gunun-sorusu.md#günün-sorusu-050)
+- [Günün Sorusu 051](gunun-sorusu.md#günün-sorusu-051)
 
 # C++ İpuçları
 

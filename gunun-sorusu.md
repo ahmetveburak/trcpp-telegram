@@ -47,6 +47,10 @@
     - [Günün Sorusu 045](#günün-sorusu-045)
     - [Günün Sorusu 046](#günün-sorusu-046)
     - [Günün Sorusu 047](#günün-sorusu-047)
+    - [Günün Sorusu 048](#günün-sorusu-048)
+    - [Günün Sorusu 049](#günün-sorusu-049)
+    - [Günün Sorusu 050](#günün-sorusu-050)
+    - [Günün Sorusu 051](#günün-sorusu-051)
 
 
 ### [Günün Sorusu 001](https://t.me/trcpp/8766)
@@ -1156,5 +1160,90 @@ int main() {
     f(&x, &y);                      // 4
     f("ali", "can");                // 5
     f(std::move(x), std::move(y));  // 6
+}
+```
+
+### [Günün Sorusu 048](https://t.me/trcpp/12735)
+- C++17 standartlarına göre aşağıdaki kodda f fonksiyonuna yapılan çağrılardan hangileri geçerlidir?
+
+```cpp
+#include <utility>
+
+template <typename T>
+void f(std::pair<T, T>, T&&);
+
+int main() {
+    int x{}, y{};
+
+    std::pair<int&, int&> p{x, y};
+    f(p, x);                     // 1
+    f(std::make_pair(x, y), x);  // 2
+}
+```
+
+### [Günün Sorusu 049](https://t.me/trcpp/12898)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a[]{1, 2, 3, 4};
+    std::cout << a[a[0 [a]][a]];
+}
+```
+
+### [Günün Sorusu 050](https://t.me/trcpp/12903)
+- Aşağıdaki kod derlenip çalıştırıldığında standart çıkış akımına 1111111111 yazıyor.\
+a) Hangi değerin yazdırılacağı  derleyiciden derleyiciye değişir.\
+b) Hangi derleyicide derlenirse derlensin çıktısı aynı olur:
+
+```cpp
+#include <iostream>
+#include <random>
+
+int main() {
+    std::mt19937 eng;
+    eng.discard(3093278472);
+    std::cout << eng();
+}
+
+```
+
+
+### [Günün Sorusu 051](https://t.me/trcpp/13221)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+#include <string>
+
+struct Nec {
+    Nec(const std::string&) { 
+        std::cout << '1'; 
+    }
+
+    template <typename T>
+    Nec(T&&) {
+        std::cout << '2';
+    }
+};
+
+int main() {
+    std::string name{"a"};
+    
+    const Nec n1{"a"};
+    Nec n2{name};
+    Nec n3{std::move(name)};
+    Nec n4{n1};
+    Nec n5{n2};
 }
 ```
