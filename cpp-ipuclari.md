@@ -6,6 +6,7 @@
 - [C++20 ipuçları 006](#c20-ipuçları-006)
 - [C++20 ipuçları 007](#c20-ipuçları-007)
 - [C++20 ipuçları 008](#c20-ipuçları-008)
+- [C++20 ipuçları 009](#c20-ipuçları-009)
 
 
 ### [C++20 ipuçları 001](https://t.me/trcpp/9585)
@@ -177,5 +178,20 @@ int main() {
     A x = {.x = 45, .str = "necati"};    // 45, 2.4, "necati"
     A y = {.d = 1.5, .str = "mustafa"};  // 0, 1.5, "mustafa"
     A z = {.d = 4.4, .x = 5};            // gecersiz. x'e d'den once ilk deger verilmeli
+}
+```
+
+### [C++20 ipuçları 009](https://t.me/trcpp/11337)
+C++17'de yapısal bağlama *(structured binding)* ile tanımlanmış değişkenler *lambda* ifadelerinde doğrudan yakalanamıyordu *(capture)*. Böyle değişkenleri yakalamak için "generalized lambda capture" ("lambda init capture" da deniliyor) kullanmak zorundaydık. C++20'de bu kısıtlama ortadan kalktı.
+
+```cpp
+#include <utility>
+
+std::pair<int, int> foo();
+
+int main() {
+    auto [x, y] = foo();
+    auto f = [x]() { return x + 5; };      // C++17'de gecersiz C++20'de gecerli
+    auto g = [x = x]() { return x + 5; };  // C++17'de gecerli
 }
 ```

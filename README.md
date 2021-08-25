@@ -68,5 +68,6 @@
 - [C++20 ipuçları 006](cpp-ipuclari.md#c20-ipuçları-006)
 - [C++20 ipuçları 007](cpp-ipuclari.md#c20-ipuçları-007)
 - [C++20 ipuçları 008](cpp-ipuclari.md#c20-ipuçları-008)
+- [C++20 ipuçları 009](cpp-ipuclari.md#c20-ipuçları-009)
 
 
