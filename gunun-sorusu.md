@@ -51,6 +51,10 @@
     - [Günün Sorusu 049](#günün-sorusu-049)
     - [Günün Sorusu 050](#günün-sorusu-050)
     - [Günün Sorusu 051](#günün-sorusu-051)
+    - [Günün Sorusu 052](#günün-sorusu-052)
+    - [Günün Sorusu 053](#günün-sorusu-053)
+    - [Günün Sorusu 054](#günün-sorusu-054)
+    - [Günün Sorusu 055](#günün-sorusu-055)
 
 
 ### [Günün Sorusu 001](https://t.me/trcpp/8766)
@@ -1245,5 +1249,92 @@ int main() {
     Nec n3{std::move(name)};
     Nec n4{n1};
     Nec n5{n2};
+}
+```
+
+### [Günün Sorusu 052](https://t.me/trcpp/13382)
+- Aşağıdaki kodda\
+a) Tanımsız davranış var.\
+b) Tanımsız davranış yok.\
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+using svec = std::vector<std::string>;
+
+svec foo() {
+    svec vec{"timendi", "causa", "est", "nescire"};
+
+    return vec;
+}
+
+int main() {
+    for (auto s : foo().front())
+        std::cout << s;
+}
+```
+
+### [Günün Sorusu 053](https://t.me/trcpp/13408)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <iostream>
+#include <type_traits>
+
+int* p;
+
+int main() {
+    if constexpr (std::is_lvalue_reference_v<decltype(p)>)      
+        std::cout << 1;
+    if constexpr (std::is_lvalue_reference_v<decltype(*p)>) 
+        std::cout << 2;
+    if constexpr (std::is_lvalue_reference_v<decltype((p))>) 
+        std::cout << 3;
+}
+```
+
+### [Günün Sorusu 054](https://t.me/trcpp/13415)
+- C++17 standartlarına göre aşağıdaki kodda\
+a) Sentaks hatası var.\
+b) Tanımsız davranış (undefined behavior) var.\
+c) Belirlenmemiş davranış (unspecified behavior) var.\
+d) Derlenip çalıştırıldığında ekran çıktısı şu olur:
+
+```cpp
+#include <initializer_list>
+#include <iostream>
+
+struct Nec {
+    Nec() = default;
+    Nec(const Nec&) { std::cout << 1; }
+    Nec(Nec&&) { std::cout << 2; }
+};
+
+void f(std::initializer_list<Nec> x) {}
+
+int main() {
+    Nec n;
+    std::initializer_list<Nec> i{n, Nec{}};
+    f(i);
+    f(move(i));
+}
+```
+
+### [Günün Sorusu 055](https://t.me/trcpp/13624)
+- *main* fonksiyonu içindeki tanımlamalardan hangileri geçerlidir?
+
+```cpp
+int main() {
+    const int x = 10;
+
+    auto f = [x]() mutable { ++x; };
+    auto g = [x = x]() { ++x; };
+    auto h = [x = x]() mutable { ++x; };
 }
 ```
